@@ -28,7 +28,7 @@ public class AnnotationConfigurationTest {
     public static void init() {
         ctx = new AnnotationConfigApplicationContext(AppConfig.class);
         human = ctx.getBean("knight", Human.class);
-        orc = (Orc) ctx.getBean("trall");
+        orc = (Orc) ctx.getBean("thrall");
         troll = ctx.getBean("zulJin", Troll.class);
     }
 
@@ -41,7 +41,7 @@ public class AnnotationConfigurationTest {
     @Test
     public void testUnitBeanCreation() {
         assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Human.class)), containsString("knight"));
-        assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Orc.class)), containsString("trall"));
+        assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Orc.class)), containsString("thrall"));
         assertThat(Arrays.deepToString(ctx.getBeanNamesForType(Troll.class)), containsString("zulJin"));
     }
 
@@ -55,7 +55,7 @@ public class AnnotationConfigurationTest {
     @Test
     public void testOrcCharacteristics() {
         assertThat(orc.getMount(), instanceOf(Wolf.class));
-        assertThat(orc.getWeapon(), equalToIgnoringCase("furryaxe"));
+        assertThat(orc.getWeapon(), equalToIgnoringCase("furyaxe"));
         assertThat(orc.getColorCode(), equalTo(9));
     }
 
